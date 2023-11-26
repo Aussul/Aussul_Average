@@ -4,10 +4,9 @@
 
 
 
-
 ## About
 
-Java Program for Calculate  Average , Total Amount buy / sell , Quantity , Fees
+Java Program to Calculate  Average , Total Amount Buy / Sell , Quantity , Fees
 using for:
  - All Crypto Currency pairs (Example: BTC - USDT , XRP - TUSD , LTC - USDC..).
  - Forex (Example: EUR - USD..).
@@ -31,7 +30,7 @@ Any system with Java support (Java Runtime Environment [JRE](https://www.java.co
 
 * add orders:
 
-	you can add orders to this program in tow way:
+	you can add orders to this program in tthis way:
 
     * Manual.
     * Import csv: support (Binance , Kucoin) only, (you can add support other exchange not supported see FAQ).
@@ -145,10 +144,10 @@ Now we need edit first line (replace words):
 
   * CoinEX:
 
-     * original first line (header):
+     * original first line (header) :  
 	`Execution Time,Trading pair/Contract name,Side,Executed Price,Executed Amount,Executed Value,Fees,Fees Coin Type,Executed Type`
 			
-    * after replace words :	
+     * after replace words :  
 	`Date,Pair,Side,Price,Quantity,Amount,Fee,Fee Currency,Executed Type`
 
 
@@ -170,8 +169,8 @@ Now we need edit first line (replace words):
 
 ```
 Name           Default Fee currency                       Default Fee Percentage
-Gateio                     GT                                 0.15 (VIP 0 check in your account)
-CoinEX                   CET                               0.16 (VIP 0 check in your account)
+Gateio                    GT                                 0.15 (VIP 0 check in your account)
+CoinEX                  CET                               0.16 (VIP 0 check in your account)
 ```
 	
    Finally import CSV file from program.
@@ -186,6 +185,16 @@ CoinEX                   CET                               0.16 (VIP 0 check in 
   
   Note: Amount data if pair is BTC-USDT enter the cost in USDT.
 
+------------------------------------------------
+
+### i am close my bot how add order to program?
+  if you close your bot in lost enter the order like Buy service (Side Buy):   
+  `Side="Buy" , Price="-" , Quantity="0 if you change all quantity to usdt" , Amount , Fee="-" `
+  
+  if your bot not in lost enter Side Sell with 0 Quantity:    
+  `Side="Sell" , Price="-" , Quantity="0 if you change all quantity to usdt" , Amount , Fee="-" `
+
+Note: Amount the different between in and out cost Example: if you open bot cost 100 usdt and after close it you have 120 usdt Amount = 20 usdt.
 
 ------------------------------------------------
 
