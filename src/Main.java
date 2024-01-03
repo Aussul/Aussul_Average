@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 public class Main {
     
-    public static final String programName = "Aussul_Average";// v1.0
+    public static final String programName = "Aussul_Average";// v1.1
     public static Exchanges exchanges = new Exchanges();
     public static final String hdr_Date = "Date/Note";
     public static final String hdr_Side = "Side";
@@ -773,12 +773,10 @@ public class Main {
        return ordersCount;
    }
    
-   public List<String[]> readCsv(File f) throws IOException {
+public List<String[]> readCsv(File f) throws IOException {
     List<String[]> lines = new ArrayList<>();
     FileReader fr = new FileReader(f);
-    StringBuilder sb;
-    int start;
-    int end;
+
     String wrongData = "\"";
     
     
@@ -787,13 +785,27 @@ public class Main {
             while ((line = r.readLine()) != null) {
                if(line.contains(split)) {
                     if(line.contains(wrongData)) { //(,) inside Data Example: BUY,"16,100.20",0.01BTC,...
-                       sb = new StringBuilder(line);
-                       start = line.indexOf(wrongData);
-                       end = line.lastIndexOf(wrongData); 
-                       String sr = line.substring(start , end ).replace(split,"");
-                       sb.replace(start, end, sr);
-                       line = sb.toString().replaceAll(wrongData, "");                                    
+
+                        int lastIndex = line.lastIndexOf(wrongData)-1;
+                        int start;
+                        int end=0;
+                        String wrongCell;
+                        
+                        while(end < lastIndex) {
+                            
+                            start = line.indexOf(wrongData,end)+1;
+                            end = line.indexOf(wrongData,start);
+                            wrongCell = line.substring(start , end );
+                            
+                            if(wrongCell.contains(split))
+                                line = line.replace(wrongCell, wrongCell.replace(",",""));
+                            
+                            end++;    
+                        }
+                       
+                       line = line.replaceAll(wrongData, "");                                    
                     }
+                    
                     lines.add(line.split(split));
                 }
             }
