@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,7 +19,7 @@ import java.util.logging.Logger;
 
 public class Main {
     
-    public static final String programName = "Aussul_Average";// v1.1
+    public static final String programName = "Aussul_Average";// v2.0
     public static Exchanges exchanges = new Exchanges();
     public static final String hdr_Date = "Date/Note";
     public static final String hdr_Side = "Side";
@@ -613,6 +612,7 @@ public class Main {
                 if(!firstLine.contains(split) || 
                    !firstLine.contains(hdr_Side) ||
                    !firstLine.contains(hdr_Fee)) {
+                    sc.close();
                     return -3; 
                 }
                
@@ -624,13 +624,15 @@ public class Main {
                 header = data.remove(0);
             else
                 return -4;
-            
+                      
             //Binance:
-            //    0          1     2      3          4        5       6
+            //    0                  1        2         3            4                  5          6
             //"Date(UTC)","Pair","Side","Price","Executed","Amount","Fee"
             //Kucoin:  
-            //  0           1           2                3               4       5          6            7             8                  9                10             11                    12                   13              14         15         16
-            //"UID","Account Type","Order ID","Order Time(UTC+03:00)","Symbol","Side","Order Type","Order Price","Order Amount","Avg. Filled Price","Filled Amount","Filled Volume","Filled Volume (USDT)","Filled Time(UTC+03:00)","Fee","Fee Currency","Status"
+            //  0           1           2                3                           4                         5          6            7                      8                    9                           10                        
+            //"UID","Account Type","Order ID","Order Time(UTC+03:00)","Symbol","Side","Order Type","Order Price","Order Amount","Avg. Filled Price",
+		    //           11                    12                              13                                 14                         15            16               17
+		    // "Filled Amount","Filled Volume","Filled Volume (USDT)","Filled Time(UTC+03:00)","Fee","Fee Currency","Status"
             
             for (int i = 0 ; i < header.length ; i++) {
 
@@ -739,19 +741,7 @@ public class Main {
            //Collections list to [A-Z]
            if(lp.pairData.size() > 1)
                 Collections.sort(lp.pairData);
-           
-           if("Kucoin".equals(lp.exchangeName)) { //get last order date kucoin
-               for (int i = 0 ; i < header.length ; i++) {
-                   if(header[i].startsWith("Order Time")) {
-                        String s = data.get(data.size()-1)[i];
-                        if(s.contains(":"))
-                            s = s.substring(0, s.indexOf(':')-2);
-                        lp.last_Order = s;
-                        break;
-                   }
-               }
-           
-           }else           
+          
                 lp.last_Order = data.get(data.size()-1)[date_column]; //last order date for next import
            
            saveAllData(false ,false);
@@ -798,7 +788,7 @@ public List<String[]> readCsv(File f) throws IOException {
                             wrongCell = line.substring(start , end );
                             
                             if(wrongCell.contains(split))
-                                line = line.replace(wrongCell, wrongCell.replace(",",""));
+                                line = line.replace(wrongCell, wrongCell.replace(split,""));
                             
                             end++;    
                         }
