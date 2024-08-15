@@ -233,45 +233,72 @@ Donations
 You are welcome to donate and support the project this is my addresses:
 
 BTC (Network: Bitcoin)
+
 `bc1q79unudgulatz2jqp03jrrlztsgwy9pkdwdxral`
 
+
 LTC (Network: Litecoin)
+
 `ltc1qyz562l0xsw9d0hvy9ls2nefjff96r8vexnkdgs`
 
+
 XRP (Network: Ripple)
+
 `rfBiGmf1WppVT9y4X9cWwpXuxL4WD5Ment`
 
+
 XMR (Network: Monero)
+
 `8BuBYuj9uHdgKiyL5x3uQt6K3X32pSEdHfnpDxXSrRb2ZaTbiZtUeGCB4dY5sUWaA41AvacFvBdfLhLcZVzet8EDK46kfwn`
 
+
 XHV (Network: Havenprotocol)
+
 `hvxyKUkQCh3AtxJfhheGU7Fgzm6QAuvYyHJJ4N8m8iUw3Ugoxa5n4JCdHtaxMVaXzyNUcoPnHrkwk1vtXGB6oVEj4xKX8J31CJ`
 
+
 XLM (Network: Stellar)
+
 `GC7SRI3SFTDUBD5OPLPIOWQNPIUBKLQDMHCWIQVGOGGQERPC7R2BBKUF`
 
+
 ETH (Network: Ethereum ERC20)
+
 `0x608E0EBc68A605DcD3E9F5074Dd8b60370Df8692`
 
+
 BCH (Network: Bitcoin Cash)
+
 `qqsr9gft5t6dt6lt92j05mhkskvv65wqls8u05js5k`
 
+
 TRX  (Network: TRX(Tron) TRC20)
+
 `TTRwq9yi9DbD4d8DqX6Jd941d5C8aCziet`
+
 
 ALGO (Network: Algorand)
+
 `N5WYNW5ORELRADOR5B2OGKMCNGBLRLGXM6JPBH5LQKDRRI23Y2HWCVGP3U`
 
+
 BNB (Network: BSC(BNB Smart Chain) BEP20)
+
 `0x9f81679fca574219C2A87A27980Ec8C70CA7067A`
 
+
 DOGE (Network: Dogecoin)
+
 `DKyEtLNRynA35QwVWp15nCMoDszZVLajbS`
 
+
 USDT  (Network: TRX(Tron) TRC20)
+
 `TTRwq9yi9DbD4d8DqX6Jd941d5C8aCziet`
 
+
 USDT (Network: BSC(BNB Smart Chain) BEP20)
+
 `0x608E0EBc68A605DcD3E9F5074Dd8b60370Df8692`
 
 
