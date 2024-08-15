@@ -11,7 +11,7 @@ public class PairDataUtils {
    
     
     public static void setValueAt(PairData p, Object aValue, int rowIndex, int columnIndex) {
-              
+            
         if(!aValue.equals("")) {
             if(rowIndex >= p.data.size()) {
                 rowIndex = p.data.size();
@@ -21,6 +21,9 @@ public class PairDataUtils {
             value = aValue.toString();
             c = p.getColumnName(columnIndex);
             
+            if(value.contains(","))
+	       value = value.replaceAll(",", "");
+				
             if(c.equals(Main.hdr_Date)) {
                 if(value.equalsIgnoreCase("d")) { //print current date and time
                     value = Main.sdf.format(Calendar.getInstance().getTime());
